@@ -5,9 +5,10 @@ const { NETWORK } = require(`${basePath}/constants/network.js`);
 const network = NETWORK.eth;
 
 // General metadata for Ethereum
-const namePrefix = "Your Collection";
-const description = "Remember to replace this description";
-const baseUri = "ipfs://NewUriToReplace";
+const namePrefix = "YeoPanHo(여판호)";
+const description = "imaginary animal of 10 year old girl";
+// const baseUri = "ipfs://NewUriToReplace";
+const baseUri = "http://gonplay.42web.io/NFT/YeoPanHo/images";
 
 const solanaMetadata = {
   symbol: "YC",
@@ -24,15 +25,19 @@ const solanaMetadata = {
 // If you have selected Solana then the collection starts from 0 automatically
 const layerConfigurations = [
   {
-    growEditionSizeTo: 5,
+    growEditionSizeTo: 1000,
     layersOrder: [
-      { name: "Background" },
-      { name: "Eyeball" },
-      { name: "Eye color" },
-      { name: "Iris" },
-      { name: "Shine" },
-      { name: "Bottom lid" },
-      { name: "Top lid" },
+      { name: "BackgroundSky" },      
+      { name: "Cloud" },      
+      { name: "BackgroudBottom" },
+      { name: "Tail" },      
+      { name: "Body" },
+      { name: "Belly" },      
+      { name: "Ears" },      
+      { name: "Head" },
+      { name: "Mask" },
+      { name: "MouseAndNose" },
+      { name: "Eyes" },
     ],
   },
 ];

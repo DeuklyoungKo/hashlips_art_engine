@@ -334,11 +334,18 @@ function shuffle(array) {
   return array;
 }
 
+const getZeroFilledNumber = (inNumber, maxNumber) => {
+  return inNumber.toString().padStart(maxNumber.toString().length,'0')
+}
+
 const startCreating = async () => {
   let layerConfigIndex = 0;
   let editionCount = 1;
   let failedCount = 0;
   let abstractedIndexes = [];
+
+  const thisGrowEditionSizeTo = layerConfigurations[layerConfigurations.length - 1].growEditionSizeTo
+
   for (
     let i = network == NETWORK.sol ? 0 : 1;
     i <= layerConfigurations[layerConfigurations.length - 1].growEditionSizeTo;
@@ -401,9 +408,9 @@ const startCreating = async () => {
           debugLogs
             ? console.log("Editions left to create: ", abstractedIndexes)
             : null;
-          saveImage(abstractedIndexes[0]);
-          addMetadata(newDna, abstractedIndexes[0]);
-          saveMetaDataSingleFile(abstractedIndexes[0]);
+          saveImage(getZeroFilledNumber(abstractedIndexes[0],thisGrowEditionSizeTo));
+          addMetadata(newDna, getZeroFilledNumber(abstractedIndexes[0],thisGrowEditionSizeTo));
+          saveMetaDataSingleFile(getZeroFilledNumber(abstractedIndexes[0],thisGrowEditionSizeTo));
           console.log(
             `Created edition: ${abstractedIndexes[0]}, with DNA: ${sha1(
               newDna
